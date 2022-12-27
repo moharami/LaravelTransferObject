@@ -1,0 +1,54 @@
+{
+    "name": "moharami/laraveldatatransferobject",
+    "description": "Transfer Data from Api To Controller",
+    "keywords": [
+        "moharami",
+        "laraveldatatransferobject"
+    ],
+    "homepage": "https://github.com/moharami/laraveldatatransferobject",
+    "license": "MIT",
+    "type": "library",
+    "authors": [
+        {
+            "name": "Amir Moharami",
+            "email": "a.moharami@gmail.com",
+            "role": "Developer"
+        }
+    ],
+    "require": {
+        "php": "^7.4|^8.0",
+        "illuminate/support": "^8.0"
+    },
+    "require-dev": {
+        "orchestra/testbench": "^6.0",
+        "phpunit/phpunit": "^9.0"
+    },
+    "autoload": {
+        "psr-4": {
+            "Moharami\\LaravelDataTransferObject\\": "src"
+        }
+    },
+    "autoload-dev": {
+        "psr-4": {
+            "Moharami\\LaravelDataTransferObject\\Tests\\": "tests"
+        }
+    },
+    "scripts": {
+        "test": "vendor/bin/phpunit",
+        "test-coverage": "vendor/bin/phpunit --coverage-html coverage"
+
+    },
+    "config": {
+        "sort-packages": true
+    },
+    "extra": {
+        "laravel": {
+            "providers": [
+                "Moharami\\LaravelDataTransferObject\\LaravelDataTransferObjectServiceProvider"
+            ],
+            "aliases": {
+                "LaravelDataTransferObject": "Moharami\\LaravelDataTransferObject\\LaravelDataTransferObjectFacade"
+            }
+        }
+    }
+}
