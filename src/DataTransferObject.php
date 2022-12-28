@@ -11,9 +11,15 @@ abstract class DataTransferObject
     public function __construct($data)
     {
         $class = new ReflectionClass(static::class);
-        foreach ($class->getProperties(ReflectionProperty::IS_PUBLIC) as $reflectionProperty) {
-            $field = $reflectionProperty->getName();
-            $this->$field = $data[$field];
+
+        foreach ($class->getProperties(ReflectionProperty::IS_PUBLIC) as $property) {
+            $field = $property->name;
+            $value = $data[$field];
+            if ($property->getAttributes()) {
+                $attributes = $property->getAttributes();
+                $field = $attributes[0]->newInstance()->value;
+            }
+            $this->$field = $value;
         }
     }
 
@@ -21,7 +27,6 @@ abstract class DataTransferObject
     {
         $class = get_called_class();
         return new $class($data);
-
     }
 
 }

@@ -1,0 +1,1 @@
+{"version":1,"defects":{"Warning":6,"Moharami\\LaravelDataTransferObject\\Tests\\Unit\\DtoTest::test_convert_array_to_object":4},"times":{"Warning":0.007,"Moharami\\LaravelDataTransferObject\\Tests\\Unit\\DtoTest::test_convert_array_to_object":0.008,"Moharami\\LaravelDataTransferObject\\Tests\\Unit\\mapTest::test_map":0.001}}
