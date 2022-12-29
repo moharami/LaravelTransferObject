@@ -3,6 +3,7 @@
 
 namespace Moharami\LaravelDataTransferObject;
 
+use http\Exception\InvalidArgumentException;
 use ReflectionClass;
 use ReflectionProperty;
 
@@ -13,12 +14,8 @@ abstract class DataTransferObject
         $class = new ReflectionClass(static::class);
 
         foreach ($class->getProperties(ReflectionProperty::IS_PUBLIC) as $property) {
-            $field = $property->name;
-            $value = $data[$field];
-            if ($property->getAttributes()) {
-                $attributes = $property->getAttributes();
-                $field = $attributes[0]->newInstance()->value;
-            }
+            $value = $data[$property->name];
+            $field = $this->getField($property);
             $this->$field = $value;
         }
     }
@@ -28,5 +25,17 @@ abstract class DataTransferObject
         $class = get_called_class();
         return new $class($data);
     }
+
+    
+    public function getField(ReflectionProperty $property)
+    {
+        $field = $property->name;
+        if ($property->getAttributes()) {
+            $attributes = $property->getAttributes();
+            $field = $attributes[0]->newInstance()->value;
+        }
+        return $field;
+    }
+
 
 }

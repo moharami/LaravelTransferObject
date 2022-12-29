@@ -12,7 +12,8 @@ class mapTest extends TestCase
     {
         $array = [
             'first_name' => 'amir',
-            'last_name' => 'moharami'
+            'last_name' => 'moharami',
+            'bank_account' => 123
         ];
 
         $object = UserData::make($array);

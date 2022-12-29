@@ -11,4 +11,5 @@ class UserData extends DataTransferObject
     #[map('firstName')]
     public string $first_name;
     public string $last_name;
+    public int $bank_account;
 }

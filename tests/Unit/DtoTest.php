@@ -4,7 +4,6 @@ declare(strict_types=1);
 
 namespace Moharami\LaravelDataTransferObject\Tests\Unit;
 
-use Moharami\LaravelDataTransferObject\DataTransferObject;
 use Moharami\LaravelDataTransferObject\Tests\DTOs\UserData;
 use PHPUnit\Framework\TestCase;
 
@@ -16,7 +15,8 @@ class DtoTest extends TestCase
     {
         $array = [
             'first_name' => 'amir',
-            'last_name' => 'moharami'
+            'last_name' => 'moharami',
+            'bank_account' => 123
         ];
 
         $object = UserData::make($array);
